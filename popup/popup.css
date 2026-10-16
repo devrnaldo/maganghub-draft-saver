@@ -1,4 +1,4 @@
-/* Reset and Base */
+﻿/* Reset and Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,15 +40,22 @@ body {
 }
 
 .brand-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #ffffff;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  padding: 4px;
+  box-shadow: 0 1px 3px rgba(8, 163, 249, 0.15);
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand-title {
@@ -150,7 +157,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2563eb;
+  background-color: #0284c7;
 }
 
 input:checked + .slider:before {
@@ -187,8 +194,8 @@ input:checked + .slider:before {
 }
 
 .field-card:focus-within {
-  border-color: #93c5fd;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  border-color: #7dd3fc;
+  box-shadow: 0 0 0 2px rgba(8, 163, 249, 0.12);
 }
 
 .field-header {
@@ -209,8 +216,8 @@ input:checked + .slider:before {
   justify-content: center;
   width: 18px;
   height: 18px;
-  background: #eff6ff;
-  color: #2563eb;
+  background: #e0f2fe;
+  color: #0284c7;
   font-size: 10px;
   font-weight: 700;
   border-radius: 50%;
@@ -247,8 +254,8 @@ input:checked + .slider:before {
 }
 
 .icon-btn:hover {
-  background: #f1f5f9;
-  color: #2563eb;
+  background: #f0f9ff;
+  color: #0284c7;
 }
 
 textarea {
@@ -304,12 +311,12 @@ textarea:focus {
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #0284c7;
   color: #ffffff;
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: #0369a1;
 }
 
 .btn-secondary {
