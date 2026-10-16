@@ -213,6 +213,30 @@
   gap: 10px;
 }
 
+
+/* Google Drive / Canva style sync notice */
+.mhd-sync-notice {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  background: var(--mhd-bg-main);
+  border: 1px solid var(--mhd-border);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--mhd-text-secondary);
+  line-height: 1.35;
+}
+
+.mhd-sync-icon {
+  color: #1e8e3e;
+  flex-shrink: 0;
+}
+
+#mhd-floating-root[data-theme="dark"] .mhd-sync-icon {
+  color: #81c995;
+}
+
 .mhd-meta-row {
   display: flex;
   justify-content: space-between;

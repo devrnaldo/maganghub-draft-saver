@@ -223,6 +223,29 @@ body {
   background: #1e8e3e;
 }
 
+
+/* Google Drive / Canva style sync banner */
+.sync-banner {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.sync-banner-icon {
+  color: #1e8e3e;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .sync-banner-icon {
+  color: #81c995;
+}
+
 /* Meta Card */
 .meta-card {
   display: flex;

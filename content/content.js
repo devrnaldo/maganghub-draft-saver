@@ -376,6 +376,14 @@
           <button type="button" class="mhd-close-btn" id="mhd-close-panel">✕</button>
         </div>
         <div class="mhd-panel-body">
+          <div class="mhd-sync-notice">
+            <svg class="mhd-sync-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 14.5a4.5 4.5 0 0 0-4.5-4.5H14A6 6 0 1 0 4 15.5a4.5 4.5 0 0 0 4.5 4.5h10.5"></path>
+              <polyline points="9 15 12 18 16 13"></polyline>
+            </svg>
+            <span>Semua perubahan tersimpan otomatis di keeper & toolbar</span>
+          </div>
+
           <div class="mhd-meta-row">
             <span>Status Terakhir:</span>
             <strong id="mhd-last-time">Belum ada</strong>
@@ -422,10 +430,10 @@
         </div>
       </div>
 
-      <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk membuka menu MagangHub Draft">
+      <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk melihat draft. Semua perubahan otomatis tersimpan di keeper & toolbar.">
         <img src="${chrome.runtime.getURL('icons/icon.svg')}" class="mhd-pill-icon" alt="Logo">
         <span class="mhd-status-dot" id="mhd-dot"></span>
-        <span class="mhd-pill-text" id="mhd-pill-label">Draft Tersimpan</span>
+        <span class="mhd-pill-text" id="mhd-pill-label">Tersimpan Otomatis</span>
       </div>
     `;
 
@@ -509,7 +517,7 @@ ${currentDraft.kendala || '-'}`;
       label.textContent = 'Menyimpan...';
     } else {
       dot.classList.remove('saving');
-      label.textContent = hasDraftContent() ? 'Draft Tersimpan' : 'Draft Kosong';
+      label.textContent = hasDraftContent() ? 'Tersimpan Otomatis' : 'Draft Kosong';
     }
   }
 
@@ -519,7 +527,7 @@ ${currentDraft.kendala || '-'}`;
     const autoStatus = document.getElementById('mhd-auto-status');
 
     if (timeEl) timeEl.textContent = formatTime(currentDraft.updatedAt);
-    if (pillLabel) pillLabel.textContent = hasDraftContent() ? 'Draft Tersimpan' : 'Draft Kosong';
+    if (pillLabel) pillLabel.textContent = hasDraftContent() ? 'Tersimpan Otomatis' : 'Draft Kosong';
     if (autoStatus) autoStatus.textContent = config.autoRestore ? 'Aktif' : 'Nonaktif';
 
     const fields = [
