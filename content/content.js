@@ -228,9 +228,9 @@
 
     if (showToastMsg) {
       if (restoredCount > 0) {
-        showToast(`✨ Berhasil memulihkan ${restoredCount} kolom draft!`);
+        showToast(`Berhasil memulihkan ${restoredCount} kolom draft`);
       } else {
-        showToast('⚠️ Kolom form tidak ditemukan atau draft masih kosong.');
+        showToast('Kolom form tidak ditemukan atau draft masih kosong');
       }
     }
 
@@ -287,7 +287,7 @@
     if (foundAny && areFieldsEmpty(targets)) {
       if (config.autoRestore) {
         restoreDraftToFields(false);
-        showToast('✨ Draft laporan otomatis dipulihkan ke form!');
+        showToast('Draft laporan otomatis dipulihkan ke form');
         return;
       }
 
@@ -332,7 +332,7 @@
       <div class="mhd-panel" id="mhd-panel">
         <div class="mhd-panel-header">
           <div class="mhd-panel-title">
-            <img src="${chrome.runtime.getURL('icons/icon.svg')}" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;display:inline-block;" alt="Logo"> <span>MagangHub Draft Keeper</span>
+            <span>MagangHub Draft Keeper</span>
           </div>
           <button type="button" class="mhd-close-btn" id="mhd-close-panel">✕</button>
         </div>
@@ -368,26 +368,22 @@
 
           <div class="mhd-actions-grid">
             <button type="button" class="mhd-btn mhd-btn-primary" id="mhd-btn-restore">
-              ✨ Pulihkan ke Form
-            </button>
-            <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-copy">
-              📋 Salin Semua
+              Pulihkan ke Form
             </button>
             <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-save-now">
-              💾 Simpan Manual
+              Simpan Draft
             </button>
-            <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-toggle-auto">
-              ⚙️ Auto-Isi: <span id="mhd-auto-status">Aktif</span>
+            <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-copy">
+              Salin Semua
             </button>
             <button type="button" class="mhd-btn mhd-btn-danger" id="mhd-btn-clear">
-              🗑️ Hapus Draft
+              Hapus Draft
             </button>
           </div>
         </div>
       </div>
 
       <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk membuka menu MagangHub Draft">
-        <img src="${chrome.runtime.getURL('icons/icon.svg')}" style="width:16px;height:16px;object-fit:contain;vertical-align:middle;margin-right:2px;" alt="Logo">
         <span class="mhd-status-dot" id="mhd-dot"></span>
         <span class="mhd-pill-text" id="mhd-pill-label">Draft Tersimpan</span>
       </div>
@@ -408,49 +404,46 @@
       panel.classList.remove('open');
     });
 
-    document.getElementById('mhd-btn-restore').addEventListener('click', () => {
+    document.getElementById('mhd-btn-restore')?.addEventListener('click', () => {
       restoreDraftToFields(true);
     });
 
-    document.getElementById('mhd-btn-save-now').addEventListener('click', () => {
+    document.getElementById('mhd-btn-save-now')?.addEventListener('click', () => {
       const targets = findTargetElements();
-      let hasVal = false;
       for (const k of ['uraian', 'pembelajaran', 'kendala']) {
         if (targets[k]) {
           currentDraft[k] = getElementValue(targets[k]);
-          hasVal = true;
         }
       }
       currentDraft.updatedAt = Date.now();
       chrome.storage.local.set({ [STORAGE_KEY]: currentDraft }, () => {
-        showToast('💾 Draft berhasil disimpan!');
+        showToast('Draft berhasil disimpan');
         updateUI();
       });
     });
 
-    document.getElementById('mhd-btn-copy').addEventListener('click', () => {
+    document.getElementById('mhd-btn-copy')?.addEventListener('click', () => {
       if (!hasDraftContent()) {
-        showToast('⚠️ Draft masih kosong.');
+        showToast('Draft masih kosong');
         return;
       }
-      const combined = `[URAIAN AKTIVITAS]\n${currentDraft.uraian || '-'}\n\n[PEMBELAJARAN YANG DIPEROLEH]\n${currentDraft.pembelajaran || '-'}\n\n[KENDALA YANG DIALAMI]\n${currentDraft.kendala || '-'}`;
+      const combined = `[URAIAN AKTIVITAS]
+${currentDraft.uraian || '-'}
+
+[PEMBELAJARAN YANG DIPEROLEH]
+${currentDraft.pembelajaran || '-'}
+
+[KENDALA YANG DIALAMI]
+${currentDraft.kendala || '-'}`;
       navigator.clipboard.writeText(combined).then(() => {
-        showToast('📋 Semua draft berhasil disalin ke clipboard!');
+        showToast('Semua draft disalin ke clipboard');
       }).catch(() => {
-        showToast('Gagal menyalin ke clipboard.');
+        showToast('Gagal menyalin ke clipboard');
       });
     });
 
-    document.getElementById('mhd-btn-toggle-auto').addEventListener('click', () => {
-      config.autoRestore = !config.autoRestore;
-      chrome.storage.local.set({ [CONFIG_KEY]: config }, () => {
-        updateUI();
-        showToast(`Auto-Isi saat form dibuka: ${config.autoRestore ? 'Diaktifkan' : 'Dinonaktifkan'}`);
-      });
-    });
-
-    document.getElementById('mhd-btn-clear').addEventListener('click', () => {
-      if (confirm('Apakah Anda yakin ingin menghapus semua draft laporan sementara?')) {
+    document.getElementById('mhd-btn-clear')?.addEventListener('click', () => {
+      if (confirm('Yakin ingin mengosongkan draft laporan?')) {
         currentDraft = {
           uraian: '',
           pembelajaran: '',
@@ -459,7 +452,7 @@
           url: window.location.href
         };
         chrome.storage.local.set({ [STORAGE_KEY]: currentDraft }, () => {
-          showToast('🗑️ Draft berhasil dibersihkan.');
+          showToast('Draft berhasil dibersihkan');
           updateUI();
         });
       }

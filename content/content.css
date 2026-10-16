@@ -59,11 +59,7 @@
   box-shadow: 0 1px 4px rgba(60, 64, 67, 0.25);
 }
 
-.mhd-pill-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
+/* clean pill without icon */
 
 .mhd-status-dot {
   width: 7px;
@@ -247,7 +243,6 @@
 }
 
 .mhd-btn-danger {
-  grid-column: span 2;
   background: #fce8e6;
   color: #c5221f;
   border-color: #fad2cf;
