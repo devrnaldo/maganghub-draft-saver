@@ -13,45 +13,50 @@
 ## Fitur
 
 - **Autosave Otomatis:** Menyimpan ketikan secara real-time saat Anda mengisi form (Uraian Aktivitas, Pemelajaran, Kendala).
-- **Auto-Restore:** Teks langsung terisi kembali ketika halaman ter-reload (F5) atau form dibuka ulang.
-- **Kompatibel Reactive Framework:** Memulihkan nilai menggunakan event input native agar sinkron dengan state React / Vue / Inertia.
+- **Auto-Restore:** Teks langsung terisi kembali ketika halaman ter-reload (F5), tab tertutup, atau form dibuka ulang.
+- **Kompatibel Reactive Framework:** Menggunakan trigger input native agar state form React / Vue / Inertia di portal Kemnaker tetap sinkron.
 - **Popup & Widget Minimalis:** Dilengkapi floating button di halaman, tombol salin ke clipboard, serta dukungan tema Gelap dan Terang.
-- **Privat & Lokal:** Seluruh data draft disimpan di media lokal browser Anda (`chrome.storage.local`) tanpa dikirim ke server mana pun.
+- **Privat & Lokal:** Seluruh data disimpan langsung di browser Anda (`chrome.storage.local`) tanpa dikirim ke server pihak ketiga mana pun.
 
 ---
 
-## Cara Instalasi
+## Cara Download & Instalasi
 
-1. Clone atau download repository ini ke komputer Anda:
-   ```bash
-   git clone https://github.com/devrnaldo/maganghub-draft-saver.git
-   ```
-2. Buka halaman ekstensi browser:
-   - **Chrome:** `chrome://extensions`
-   - **Edge:** `edge://extensions`
+Ekstensi ini kompatibel dengan semua browser berbasis Chromium (**Google Chrome**, **Microsoft Edge**, **Brave**, **Opera**, dll).
+
+### Langkah 1: Download File Ekstensi
+Pilih salah satu metode berikut:
+- **Download File ZIP (Direkomendasikan):**
+  - Download file ZIP dari link **Google Drive** yang disediakan atau klik tombol hijau **Code** ➔ **Download ZIP** di halaman GitHub ini.
+  - Setelah ter-download, **Ekstrak (Extract)** file ZIP tersebut ke folder di komputer Anda (misal: di folder `Downloads` atau `Documents`).
+- **Atau via Git Clone:**
+  ```bash
+  git clone https://github.com/devrnaldo/maganghub-draft-saver.git
+  ```
+
+### Langkah 2: Pasang ke Browser
+1. Buka browser Anda, lalu ketik alamat berikut di address bar:
+   - **Google Chrome:** `chrome://extensions`
+   - **Microsoft Edge:** `edge://extensions`
    - **Brave:** `brave://extensions`
-3. Aktifkan toggle **Developer Mode** (Mode Pengembang) di pojok kanan atas.
-4. Klik tombol **Load unpacked** (Muat yang belum dibongkar), lalu pilih folder repository ini.
+2. Di pojok kanan atas, aktifkan sakelar **Developer Mode** (Mode Pengembang).
+3. Klik tombol **Load unpacked** (Muat yang belum dibongkar) yang muncul di kiri atas.
+4. Pilih folder hasil ekstrak yang berisi file `manifest.json`.
+5. Ekstensi **MagangHub Auto-Draft Saver** sekarang sudah aktif!
+6. *(Tips)* Klik ikon puzzle 🧩 di toolbar atas browser, lalu klik ikon **Pin 📌** di sebelah MagangHub Draft Saver agar ikonnya selalu terlihat di toolbar.
 
 ---
 
 ## Cara Kerja
 
-1. Ekstensi aktif pada halaman `https://monev.maganghub.kemnaker.go.id/dashboard/riwayat`.
-2. Skrip mendeteksi field target berdasarkan label, placeholder, dan ID:
-   - *Uraian Aktivitas*
-   - *Pemelajaran yang Diperoleh*
-   - *Kendala yang Dialami*
-3. Perubahan teks disimpan dengan jeda debounce 500ms ke storage lokal.
-4. Ketika form dimuat kembali dalam kondisi kosong, draft akan otomatis diisikan kembali ke form.
-
----
-
-## Uji Coba Lokal
-
-Tersedia form simulasi lokal untuk mencoba ekstensi secara langsung tanpa harus login:
-- Buka file `test/demo-riwayat.html` di browser Anda.
-- Ketik laporan, lalu tekan **F5 (Reload)** untuk melihat draft terisi kembali secara otomatis.
+1. Ekstensi hanya aktif saat Anda membuka [Monev MagangHub Kemnaker](https://monev.maganghub.kemnaker.go.id/dashboard/riwayat).
+2. Sistem secara otomatis mendeteksi 3 kolom input utama:
+   - **Uraian Aktivitas**
+   - **Pemelajaran yang Diperoleh**
+   - **Kendala yang Dialami**
+3. Ketikan Anda akan tersimpan otomatis setiap kali berhenti mengetik (jeda debounce 500ms).
+4. Saat halaman di-reload atau form dibuka kembali, draft yang tersimpan akan langsung otomatis mengisi kolom-kolom yang masih kosong.
+5. Jika laporan sudah resmi Anda kirimkan, klik floating button di pojok kanan bawah ➔ klik **Hapus Draft** untuk mengosongkan draft.
 
 ---
 
