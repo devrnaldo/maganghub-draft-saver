@@ -135,11 +135,34 @@
     return targets;
   }
 
-  // Load draft from storage
+  // Cek apakah tanggal timestamp sama dengan hari ini
+  function isToday(timestamp) {
+    if (!timestamp) return false;
+    const d = new Date(timestamp);
+    const now = new Date();
+    return d.getFullYear() === now.getFullYear() &&
+           d.getMonth() === now.getMonth() &&
+           d.getDate() === now.getDate();
+  }
+
+  // Load draft from storage (otomatis reset jika sudah berganti hari)
   function loadDraft(callback) {
     chrome.storage.local.get([STORAGE_KEY, CONFIG_KEY], (res) => {
       if (res[STORAGE_KEY]) {
-        currentDraft = Object.assign(currentDraft, res[STORAGE_KEY]);
+        const saved = res[STORAGE_KEY];
+        // Jika draft berasal dari hari sebelumnya, bersihkan untuk hari baru
+        if (saved.updatedAt && !isToday(saved.updatedAt)) {
+          currentDraft = {
+            uraian: '',
+            pembelajaran: '',
+            kendala: '',
+            updatedAt: null,
+            url: window.location.href
+          };
+          chrome.storage.local.set({ [STORAGE_KEY]: currentDraft });
+        } else {
+          currentDraft = Object.assign(currentDraft, saved);
+        }
       }
       if (res[CONFIG_KEY]) {
         config = Object.assign(config, res[CONFIG_KEY]);

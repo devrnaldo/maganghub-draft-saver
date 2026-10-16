@@ -91,10 +91,30 @@
     }
   }
 
+  function isToday(timestamp) {
+    if (!timestamp) return false;
+    const d = new Date(timestamp);
+    const now = new Date();
+    return d.getFullYear() === now.getFullYear() &&
+           d.getMonth() === now.getMonth() &&
+           d.getDate() === now.getDate();
+  }
+
   function loadData() {
     chrome.storage.local.get([STORAGE_KEY, CONFIG_KEY], (res) => {
-      const data = res[STORAGE_KEY] || {};
+      let data = res[STORAGE_KEY] || {};
       const config = res[CONFIG_KEY] || { autoRestore: true };
+
+      // Jika draft berasal dari hari sebelumnya, otomatis bersihkan
+      if (data.updatedAt && !isToday(data.updatedAt)) {
+        data = {
+          uraian: '',
+          pembelajaran: '',
+          kendala: '',
+          updatedAt: null
+        };
+        chrome.storage.local.set({ [STORAGE_KEY]: data });
+      }
 
       inputUraian.value = data.uraian || '';
       inputPembelajaran.value = data.pembelajaran || '';

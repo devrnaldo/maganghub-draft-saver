@@ -14,6 +14,7 @@
 
 - **Autosave Otomatis:** Menyimpan ketikan secara real-time saat Anda mengisi form (Uraian Aktivitas, Pemelajaran, Kendala).
 - **Auto-Restore:** Teks langsung terisi kembali ketika halaman ter-reload (F5), tab tertutup, atau form dibuka ulang.
+- **Auto-Reset Ganti Hari:** Draft otomatis dikosongkan ketika berganti tanggal baru sehingga form siap untuk laporan hari berjalan.
 - **Kompatibel Reactive Framework:** Menggunakan trigger input native agar state form React / Vue / Inertia di portal Kemnaker tetap sinkron.
 - **Popup & Widget Minimalis:** Dilengkapi floating button di halaman, tombol salin ke clipboard, serta dukungan tema Gelap dan Terang.
 - **Privat & Lokal:** Seluruh data disimpan langsung di browser Anda (`chrome.storage.local`) tanpa dikirim ke server pihak ketiga mana pun.
