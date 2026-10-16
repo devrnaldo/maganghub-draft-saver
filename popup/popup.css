@@ -228,10 +228,9 @@ body {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 10px;
-  background: var(--bg-card);
+  padding: 4px 0;
+  background: transparent;
   border: none;
-  border-radius: 4px;
   font-size: 11px;
   color: var(--text-secondary);
 }
@@ -250,10 +249,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--bg-card);
+  background: transparent;
   border: none;
-  border-radius: 4px;
-  padding: 10px 14px;
+  padding: 6px 0;
 }
 
 .meta-item {
