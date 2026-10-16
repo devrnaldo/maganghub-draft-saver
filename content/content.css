@@ -1,4 +1,4 @@
-/* MagangHub Auto-Draft Saver - Content Styles */
+﻿/* MagangHub Auto-Draft Saver - Content Styles */
 #mhd-floating-root {
   position: fixed;
   bottom: 24px;
@@ -229,11 +229,11 @@
 }
 
 .mhd-btn-primary {
-  background: #2563eb;
+  background: #0284c7;
   color: #ffffff;
 }
 .mhd-btn-primary:hover {
-  background: #1d4ed8;
+  background: #0369a1;
 }
 
 .mhd-btn-secondary {
@@ -254,6 +254,7 @@
 }
 .mhd-btn-danger:hover {
   background: #ffe4e6;
+  font-weight: 600;
 }
 
 /* Prompt banner inside target form if draft exists */
@@ -297,11 +298,11 @@
 }
 
 .mhd-banner-btn-apply {
-  background: #2563eb;
+  background: #0284c7;
   color: #ffffff;
 }
 .mhd-banner-btn-apply:hover {
-  background: #1d4ed8;
+  background: #0369a1;
 }
 
 .mhd-banner-btn-dismiss {
@@ -311,4 +312,78 @@
 .mhd-banner-btn-dismiss:hover {
   background: #dbeafe;
   color: #1e3a8a;
+}
+
+/* Dark Mode support for floating widget */
+@media (prefers-color-scheme: dark) {
+  .mhd-pill-btn {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+  .mhd-pill-btn:hover {
+    background: #0f172a;
+    border-color: #475569;
+  }
+  .mhd-pill-text {
+    color: #f8fafc;
+  }
+  .mhd-panel {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+  .mhd-panel-header {
+    background: #0f172a;
+    border-bottom-color: #334155;
+  }
+  .mhd-panel-title {
+    color: #f8fafc;
+  }
+  .mhd-close-btn:hover {
+    background: #334155;
+    color: #f8fafc;
+  }
+  .mhd-meta-row {
+    color: #94a3b8;
+    border-bottom-color: #334155;
+  }
+  .mhd-draft-field {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  .mhd-field-label {
+    color: #94a3b8;
+  }
+  .mhd-field-preview {
+    color: #f8fafc;
+  }
+  .mhd-btn-secondary {
+    background: #0f172a;
+    border-color: #334155;
+    color: #e2e8f0;
+  }
+  .mhd-btn-secondary:hover {
+    background: #1e293b;
+    border-color: #0284c7;
+  }
+  .mhd-btn-danger {
+    background: rgba(225, 29, 72, 0.15);
+    border-color: rgba(225, 29, 72, 0.3);
+    color: #fb7185;
+  }
+  .mhd-btn-danger:hover {
+    background: rgba(225, 29, 72, 0.25);
+  }
+  .mhd-form-banner {
+    background: #0f172a;
+    border-color: #1e3a8a;
+  }
+  .mhd-banner-left {
+    color: #93c5fd;
+  }
+  .mhd-banner-btn-dismiss:hover {
+    background: #1e293b;
+    color: #93c5fd;
+  }
 }

@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'maganghub_draft_data';
   const CONFIG_KEY = 'maganghub_draft_config';
+  const THEME_KEY = 'maganghub_theme';
 
   const inputUraian = document.getElementById('input-uraian');
   const inputPembelajaran = document.getElementById('input-pembelajaran');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lastSavedTime = document.getElementById('last-saved-time');
   const statusText = document.getElementById('status-text');
   const toggleAutoRestore = document.getElementById('toggle-autorestore');
+  const themeToggleBtn = document.getElementById('theme-toggle');
 
   const btnCopyUraian = document.getElementById('btn-copy-uraian');
   const btnCopyPembelajaran = document.getElementById('btn-copy-pembelajaran');
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSave = document.getElementById('btn-save');
   const btnClearAll = document.getElementById('btn-clear-all');
   const toastEl = document.getElementById('popup-toast');
+
+  let currentTheme = 'system';
 
   function showToast(text) {
     toastEl.textContent = text;
@@ -42,6 +46,49 @@ document.addEventListener('DOMContentLoaded', () => {
     badgeUraian.textContent = `${inputUraian.value.length} krt`;
     badgePembelajaran.textContent = `${inputPembelajaran.value.length} krt`;
     badgeKendala.textContent = `${inputKendala.value.length} krt`;
+  }
+
+  // --- Theme Handling ---
+  function applyTheme(theme) {
+    let effectiveTheme = theme;
+    if (!theme || theme === 'system') {
+      const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      effectiveTheme = isSystemDark ? 'dark' : 'light';
+    }
+
+    if (effectiveTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (themeToggleBtn) themeToggleBtn.title = 'Beralih ke Mode Terang';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (themeToggleBtn) themeToggleBtn.title = 'Beralih ke Mode Gelap';
+    }
+  }
+
+  function initTheme() {
+    chrome.storage.local.get([THEME_KEY], (res) => {
+      currentTheme = res[THEME_KEY] || 'system';
+      applyTheme(currentTheme);
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (currentTheme === 'system') {
+          applyTheme('system');
+        }
+      });
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const nextTheme = isCurrentlyDark ? 'light' : 'dark';
+        currentTheme = nextTheme;
+        applyTheme(nextTheme);
+        chrome.storage.local.set({ [THEME_KEY]: nextTheme });
+        showToast(nextTheme === 'dark' ? '🌙 Mode Gelap aktif' : '☀️ Mode Terang aktif');
+      });
+    }
   }
 
   function loadData() {
@@ -139,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initial load
+  // Initialize
+  initTheme();
   loadData();
 });
