@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnCopyPembelajaran = document.getElementById('btn-copy-pembelajaran');
   const btnCopyKendala = document.getElementById('btn-copy-kendala');
   const btnCopyAll = document.getElementById('btn-copy-all');
-  const btnSave = document.getElementById('btn-save');
   const btnClearAll = document.getElementById('btn-clear-all');
   const toastEl = document.getElementById('popup-toast');
 
@@ -144,10 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Input listeners for live counter
-  inputUraian.addEventListener('input', updateCharCount);
-  inputPembelajaran.addEventListener('input', updateCharCount);
-  inputKendala.addEventListener('input', updateCharCount);
+  // Input listeners for live counter and autosave
+  let popupSaveTimer = null;
+  function onInputChanged() {
+    updateCharCount();
+    clearTimeout(popupSaveTimer);
+    popupSaveTimer = setTimeout(() => {
+      saveData();
+    }, 400);
+  }
+
+  inputUraian.addEventListener('input', onInputChanged);
+  inputPembelajaran.addEventListener('input', onInputChanged);
+  inputKendala.addEventListener('input', onInputChanged);
 
   // Auto-restore toggle
   toggleAutoRestore.addEventListener('change', () => {
@@ -187,12 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast('Semua draft disalin!');
   });
 
-  // Save button
-  btnSave.addEventListener('click', saveData);
-
-  // Clear button
+  // Clear button with validation
   btnClearAll.addEventListener('click', () => {
-    if (confirm('Yakin ingin mengosongkan semua draft?')) {
+    const hasContent = Boolean(
+      (inputUraian.value && inputUraian.value.trim().length > 0) ||
+      (inputPembelajaran.value && inputPembelajaran.value.trim().length > 0) ||
+      (inputKendala.value && inputKendala.value.trim().length > 0)
+    );
+
+    if (!hasContent) {
+      showToast('Draft masih kosong, tidak ada yang perlu dihapus');
+      return;
+    }
+
+    const confirmed = confirm(
+      'Hapus Semua Draft Laporan?\n\nTeks yang tersimpan (Uraian Aktivitas, Pembelajaran, dan Kendala) akan dikosongkan. Tindakan ini tidak dapat dibatalkan.'
+    );
+
+    if (confirmed) {
       inputUraian.value = '';
       inputPembelajaran.value = '';
       inputKendala.value = '';
@@ -201,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
       chrome.storage.local.remove([STORAGE_KEY], () => {
         lastSavedTime.textContent = 'Belum ada data';
         statusText.textContent = 'Kosong';
-        showToast('Draft dibersihkan');
+        showToast('Draft berhasil dihapus');
       });
     }
   });

@@ -417,9 +417,6 @@
             <button type="button" class="mhd-btn mhd-btn-primary" id="mhd-btn-restore">
               Pulihkan ke Form
             </button>
-            <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-save-now">
-              Simpan Draft
-            </button>
             <button type="button" class="mhd-btn mhd-btn-secondary" id="mhd-btn-copy">
               Salin Semua
             </button>

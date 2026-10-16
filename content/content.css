@@ -332,6 +332,11 @@
 }
 
 .mhd-btn-danger {
+  grid-column: span 2;
+  align-self: center;
+  width: fit-content;
+  margin: 3px auto 0;
+  padding: 5px 14px;
   background: var(--mhd-danger-bg);
   color: var(--mhd-danger-color);
   border-color: var(--mhd-danger-border);
