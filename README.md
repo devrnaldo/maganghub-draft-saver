@@ -28,7 +28,7 @@ Ekstensi ini kompatibel dengan semua browser berbasis Chromium (**Google Chrome*
 ### Langkah 1: Download File
 Pilih salah satu cara:
 - **Download via Google Drive (Paling Mudah):**  
-  Klik link > [Google Drive](https://drive.google.com/drive/folders/1oda79wnvKSRtOxpJHhErvLnyvrmmV8ix), download file `.zip`, lalu ekstrak di komputer Anda.
+  Klik link > [Google Drive](https://drive.google.com/drive/folders/1oda79wnvKSRtOxpJHhErvLnyvrmmV8ix), download file `.zip` atau `.rar`, lalu ekstrak di komputer Anda.
   ```bash
   https://drive.google.com/drive/folders/1oda79wnvKSRtOxpJHhErvLnyvrmmV8ix
   ```
