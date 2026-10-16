@@ -332,7 +332,7 @@
       <div class="mhd-panel" id="mhd-panel">
         <div class="mhd-panel-header">
           <div class="mhd-panel-title">
-            <img src="'+chrome.runtime.getURL('icons/icon.svg')+'" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;display:inline-block;" alt="Logo"> <span>MagangHub Draft Keeper</span>
+            <img src="${chrome.runtime.getURL('icons/icon.svg')}" style="width:18px;height:18px;object-fit:contain;vertical-align:middle;display:inline-block;" alt="Logo"> <span>MagangHub Draft Keeper</span>
           </div>
           <button type="button" class="mhd-close-btn" id="mhd-close-panel">✕</button>
         </div>
@@ -387,7 +387,7 @@
       </div>
 
       <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk membuka menu MagangHub Draft">
-        <img src="'+chrome.runtime.getURL('icons/icon.svg')+'" style="width:16px;height:16px;object-fit:contain;vertical-align:middle;margin-right:2px;" alt="Logo">
+        <img src="${chrome.runtime.getURL('icons/icon.svg')}" style="width:16px;height:16px;object-fit:contain;vertical-align:middle;margin-right:2px;" alt="Logo">
         <span class="mhd-status-dot" id="mhd-dot"></span>
         <span class="mhd-pill-text" id="mhd-pill-label">Draft Tersimpan</span>
       </div>
