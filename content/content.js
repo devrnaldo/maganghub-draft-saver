@@ -1,6 +1,8 @@
 (() => {
   const STORAGE_KEY = 'maganghub_draft_data';
   const CONFIG_KEY = 'maganghub_draft_config';
+  const THEME_KEY = 'maganghub_theme';
+  let currentTheme = 'system';
 
   let currentDraft = {
     uraian: '',
@@ -332,6 +334,7 @@
       <div class="mhd-panel" id="mhd-panel">
         <div class="mhd-panel-header">
           <div class="mhd-panel-title">
+            <img src="${chrome.runtime.getURL('icons/icon.svg')}" class="mhd-header-logo" alt="Logo">
             <span>MagangHub Draft Keeper</span>
           </div>
           <button type="button" class="mhd-close-btn" id="mhd-close-panel">✕</button>
@@ -384,6 +387,7 @@
       </div>
 
       <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk membuka menu MagangHub Draft">
+        <img src="${chrome.runtime.getURL('icons/icon.svg')}" class="mhd-pill-icon" alt="Logo">
         <span class="mhd-status-dot" id="mhd-dot"></span>
         <span class="mhd-pill-text" id="mhd-pill-label">Draft Tersimpan</span>
       </div>
@@ -550,12 +554,16 @@ ${currentDraft.kendala || '-'}`;
         config = Object.assign(config, changes[CONFIG_KEY].newValue || {});
         updateUI();
       }
+      if (changes[THEME_KEY]) {
+        applyTheme(changes[THEME_KEY].newValue);
+      }
     }
   });
 
   // Init
   function init() {
     createFloatingUI();
+    initTheme();
     attachListeners();
     startObserver();
     loadDraft(() => {
