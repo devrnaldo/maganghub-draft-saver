@@ -59,8 +59,8 @@
   function formatTime(timestamp) {
     if (!timestamp) return 'Belum ada';
     const date = new Date(timestamp);
-    return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + 
-           ' (' + date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ')';
+    return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) +
+      ' (' + date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ')';
   }
 
   // Set input value cleanly triggering reactive frameworks (React, Vue, Inertia)
@@ -179,8 +179,8 @@
     const d = new Date(timestamp);
     const now = new Date();
     return d.getFullYear() === now.getFullYear() &&
-           d.getMonth() === now.getMonth() &&
-           d.getDate() === now.getDate();
+      d.getMonth() === now.getMonth() &&
+      d.getDate() === now.getDate();
   }
 
   // Load draft from storage (otomatis reset jika sudah berganti hari)
@@ -377,11 +377,11 @@
         </div>
         <div class="mhd-panel-body">
           <div class="mhd-sync-notice">
-            <svg class="mhd-sync-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M19 14.5a4.5 4.5 0 0 0-4.5-4.5H14A6 6 0 1 0 4 15.5a4.5 4.5 0 0 0 4.5 4.5h10.5"></path>
-              <polyline points="9 15 12 18 16 13"></polyline>
+            <svg class="mhd-sync-icon" width="14" height="14" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M24.96 12.649a9 9 0 0 0-17.917 0A7.5 7.5 0 0 0 8.5 27.5h15a7.5 7.5 0 0 0 1.46-14.851M23.5 25.5h-15a5.5 5.5 0 0 1-.423-10.978A1.02 1.02 0 0 0 9 13.5a7 7 0 0 1 14-.075v.1a1 1 0 0 0 .924 1A5.5 5.5 0 0 1 23.5 25.5"></path>
+              <path d="M19.793 15.293 14.5 20.586l-2.293-2.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l6-6a1 1 0 0 0-1.414-1.414"></path>
             </svg>
-            <span>Semua perubahan tersimpan otomatis di keeper & toolbar</span>
+            <span>Semua perubahan tersimpan otomatis</span>
           </div>
 
           <div class="mhd-meta-row">
@@ -392,7 +392,7 @@
           <div class="mhd-draft-field">
             <div class="mhd-field-label">
               <span>1. Uraian Aktivitas</span>
-              <span class="mhd-char-count" id="mhd-uraian-count">0 karakter</span>
+              <span class="mhd-char-count" id="mhd-uraian-count">0 krt</span>
             </div>
             <div class="mhd-field-preview" id="mhd-uraian-prev"><em>Kosong</em></div>
           </div>
@@ -400,7 +400,7 @@
           <div class="mhd-draft-field">
             <div class="mhd-field-label">
               <span>2. Pembelajaran yang Diperoleh</span>
-              <span class="mhd-char-count" id="mhd-pem-count">0 karakter</span>
+              <span class="mhd-char-count" id="mhd-pem-count">0 krt</span>
             </div>
             <div class="mhd-field-preview" id="mhd-pem-prev"><em>Kosong</em></div>
           </div>
@@ -408,7 +408,7 @@
           <div class="mhd-draft-field">
             <div class="mhd-field-label">
               <span>3. Kendala yang Dialami</span>
-              <span class="mhd-char-count" id="mhd-ken-count">0 karakter</span>
+              <span class="mhd-char-count" id="mhd-ken-count">0 krt</span>
             </div>
             <div class="mhd-field-preview" id="mhd-ken-prev"><em>Kosong</em></div>
           </div>
@@ -427,7 +427,7 @@
         </div>
       </div>
 
-      <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk melihat draft. Semua perubahan otomatis tersimpan di keeper & toolbar.">
+      <div class="mhd-pill-btn" id="mhd-pill" title="Klik untuk melihat draft. Semua perubahan otomatis tersimpan.">
         <img src="${chrome.runtime.getURL('icons/icon.svg')}" class="mhd-pill-icon" alt="Logo">
         <span class="mhd-status-dot" id="mhd-dot"></span>
         <span class="mhd-pill-text" id="mhd-pill-label">Tersimpan Otomatis</span>
