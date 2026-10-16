@@ -1,4 +1,4 @@
-﻿/* Theme variables */
+/* Theme variables */
 :root {
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
@@ -21,7 +21,10 @@
   --btn-sec-text: #334155;
   --btn-sec-hover: #f1f5f9;
   --danger-color: #e11d48;
-  --danger-hover-bg: #fff1f2;
+  --danger-bg: #fff1f2;
+  --danger-border: #fecdd3;
+  --danger-hover-bg: #ffe4e6;
+  --danger-hover-border: #fda4af;
   --toggle-inactive: #cbd5e1;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
@@ -48,7 +51,10 @@
   --btn-sec-text: #e2e8f0;
   --btn-sec-hover: #334155;
   --danger-color: #fb7185;
-  --danger-hover-bg: rgba(225, 29, 72, 0.15);
+  --danger-bg: rgba(225, 29, 72, 0.12);
+  --danger-border: rgba(225, 29, 72, 0.28);
+  --danger-hover-bg: rgba(225, 29, 72, 0.22);
+  --danger-hover-border: rgba(225, 29, 72, 0.45);
   --toggle-inactive: #475569;
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
@@ -437,15 +443,20 @@ textarea:focus {
   border-color: var(--border-focus);
 }
 
-/* 2. Button "Hapus Semua Draft" with semi-bold font on hover */
+/* Button "Hapus Semua Draft" */
 .btn-text-danger {
-  background: transparent;
-  border: none;
+  align-self: center;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
   color: var(--danger-color);
   font-size: 11.5px;
   font-weight: 500;
   cursor: pointer;
-  padding: 4px;
+  padding: 5px 14px;
   text-align: center;
   border-radius: 6px;
   transition: all 0.15s ease;
@@ -453,7 +464,8 @@ textarea:focus {
 
 .btn-text-danger:hover {
   background: var(--danger-hover-bg);
-  font-weight: 600; /* semi-bold saat hover */
+  border-color: var(--danger-hover-border);
+  color: var(--danger-color);
 }
 
 /* Toast */
