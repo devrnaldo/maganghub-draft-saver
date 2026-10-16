@@ -68,7 +68,7 @@
   background: #323232;
   color: #ffffff;
   padding: 8px 18px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   font-size: 12.5px;
   font-weight: 500;
@@ -95,7 +95,7 @@
   background: var(--mhd-bg-card);
   border: 1px solid var(--mhd-border);
   box-shadow: var(--mhd-shadow-pill);
-  border-radius: 20px;
+  border-radius: 6px;
   padding: 6px 14px;
   cursor: pointer;
   user-select: none;
@@ -147,7 +147,7 @@
   width: 330px;
   background: var(--mhd-bg-card);
   border: 1px solid var(--mhd-border);
-  border-radius: 12px;
+  border-radius: 6px;
   box-shadow: var(--mhd-shadow-panel);
   overflow: hidden;
   opacity: 0;
@@ -222,7 +222,7 @@
   padding: 6px 10px;
   background: var(--mhd-bg-main);
   border: 1px solid var(--mhd-border);
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 11px;
   color: var(--mhd-text-secondary);
   line-height: 1.35;
@@ -250,7 +250,7 @@
 .mhd-draft-field {
   background: var(--mhd-bg-main);
   border: 1px solid var(--mhd-border);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 8px 10px;
 }
 
@@ -303,7 +303,7 @@
   justify-content: center;
   gap: 6px;
   padding: 7px 10px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 11.5px;
   font-weight: 500;
   cursor: pointer;
@@ -351,7 +351,7 @@
   padding: 10px 14px;
   background: var(--mhd-bg-card);
   border: 1px solid var(--mhd-border);
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;

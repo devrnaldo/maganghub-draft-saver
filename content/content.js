@@ -538,7 +538,7 @@ ${currentDraft.kendala || '-'}`;
       const countEl = document.getElementById(countId);
       const val = currentDraft[key] || '';
 
-      if (countEl) countEl.textContent = `${val.length} karakter`;
+      if (countEl) countEl.textContent = `${val.length} krt`;
       if (prevEl) {
         if (val.trim()) {
           prevEl.textContent = val;

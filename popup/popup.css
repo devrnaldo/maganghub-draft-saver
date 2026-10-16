@@ -136,7 +136,7 @@ body {
   height: 32px;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,22 +172,21 @@ body {
 /* Theme Toggle Button (Google flat icon button) */
 .theme-toggle-btn {
   background: transparent;
-  border: 1px solid var(--border-card);
+  border: none;
   color: var(--text-secondary);
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .theme-toggle-btn:hover {
   background: var(--btn-sec-hover);
   color: var(--accent);
-  border-color: var(--accent);
 }
 
 [data-theme="dark"] .sun-icon {
@@ -207,11 +206,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  background: var(--status-bg);
-  border: 1px solid var(--status-border);
-  border-radius: 14px;
-  font-size: 11px;
+  padding: 2px 4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 11.5px;
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -232,7 +231,7 @@ body {
   padding: 6px 10px;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 11px;
   color: var(--text-secondary);
 }
@@ -253,7 +252,7 @@ body {
   justify-content: space-between;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 10px 14px;
 }
 
@@ -350,7 +349,7 @@ input:checked + .slider:before {
 .field-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
@@ -384,7 +383,7 @@ input:checked + .slider:before {
   color: var(--badge-text);
   font-size: 10.5px;
   font-weight: 500;
-  border-radius: 50%;
+  border-radius: 3px;
   border: 1px solid var(--badge-border);
 }
 
@@ -431,7 +430,7 @@ textarea {
   max-height: 140px;
   border: 1px solid var(--border-input);
   background: var(--bg-input);
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 6px 8px;
   font-family: inherit;
   font-size: 12px;
@@ -471,7 +470,7 @@ textarea::placeholder {
   justify-content: center;
   gap: 6px;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -520,7 +519,7 @@ textarea::placeholder {
   cursor: pointer;
   padding: 5px 14px;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -539,7 +538,7 @@ textarea::placeholder {
   background: var(--toast-bg);
   color: var(--toast-text);
   padding: 6px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 11.5px;
   font-weight: 500;
   letter-spacing: 0.2px;
