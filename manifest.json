@@ -1,8 +1,8 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "MagangHub Auto-Draft Saver",
   "version": "1.0.3",
-  "description": "Menyimpan sementara & memulihkan draft laporan harian/mingguan (Uraian Aktivitas, Pembelajaran, Kendala) di Monev MagangHub.",
+  "description": "Menyimpan sementara dan memulihkan draft laporan harian/mingguan di Monev MagangHub.",
   "permissions": [
     "storage"
   ],
@@ -42,7 +42,7 @@
         "icons/*"
       ],
       "matches": [
-        "<all_urls>"
+        "https://monev.maganghub.kemnaker.go.id/*"
       ]
     }
   ]

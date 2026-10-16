@@ -19,6 +19,42 @@
   let saveTimeout = null;
   let isRestoring = false;
 
+  // Theme Handling sinkron dengan toolbar popup
+  function applyTheme(theme) {
+    const effectiveTheme = theme || 'system';
+    let isDark = false;
+    if (effectiveTheme === 'dark') {
+      isDark = true;
+    } else if (effectiveTheme === 'system') {
+      isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    const root = document.getElementById('mhd-floating-root');
+    if (root) {
+      if (isDark) {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+    }
+  }
+
+  function initTheme() {
+    chrome.storage.local.get([THEME_KEY], (res) => {
+      applyTheme(res[THEME_KEY] || 'system');
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        chrome.storage.local.get([THEME_KEY], (res) => {
+          if (!res[THEME_KEY] || res[THEME_KEY] === 'system') {
+            applyTheme('system');
+          }
+        });
+      });
+    }
+  }
+
   // Helper to format date
   function formatTime(timestamp) {
     if (!timestamp) return 'Belum ada';
@@ -396,16 +432,16 @@
     document.body.appendChild(root);
 
     // Event listeners
-    const pill = document.getElementById('mhd-pill');
-    const panel = document.getElementById('mhd-panel');
-    const closeBtn = document.getElementById('mhd-close-panel');
+    const pill = root.querySelector('#mhd-pill');
+    const panel = root.querySelector('#mhd-panel');
+    const closeBtn = root.querySelector('#mhd-close-panel');
 
-    pill.addEventListener('click', () => {
-      panel.classList.toggle('open');
+    pill?.addEventListener('click', () => {
+      panel?.classList.toggle('open');
     });
 
-    closeBtn.addEventListener('click', () => {
-      panel.classList.remove('open');
+    closeBtn?.addEventListener('click', () => {
+      panel?.classList.remove('open');
     });
 
     document.getElementById('mhd-btn-restore')?.addEventListener('click', () => {

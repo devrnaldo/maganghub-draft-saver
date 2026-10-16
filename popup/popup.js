@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'maganghub_draft_data';
   const CONFIG_KEY = 'maganghub_draft_config';
   const THEME_KEY = 'maganghub_theme';
