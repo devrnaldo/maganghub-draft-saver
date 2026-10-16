@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "MagangHub Auto-Draft Saver",
+  "version": "1.0.0",
+  "description": "Menyimpan sementara & memulihkan draft laporan harian/mingguan (Uraian Aktivitas, Pembelajaran, Kendala) di Monev MagangHub.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://monev.maganghub.kemnaker.go.id/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "http://*.test/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://monev.maganghub.kemnaker.go.id/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "http://*.test/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "css": [
+        "content/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
