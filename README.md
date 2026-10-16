@@ -25,12 +25,13 @@
 
 Ekstensi ini kompatibel dengan semua browser berbasis Chromium (**Google Chrome**, **Microsoft Edge**, **Brave**, **Opera**, dll).
 
-### Langkah 1: Download File Ekstensi
-Pilih salah satu metode berikut:
-- **Download File ZIP (Direkomendasikan):**
-  - Download file ZIP dari link **Google Drive** yang disediakan atau klik tombol hijau **Code** ➔ **Download ZIP** di halaman GitHub ini.
-  - Setelah ter-download, **Ekstrak (Extract)** file ZIP tersebut ke folder di komputer Anda (misal: di folder `Downloads` atau `Documents`).
-- **Atau via Git Clone:**
+### Langkah 1: Download File
+Pilih salah satu cara:
+- **Download via Google Drive (Paling Mudah):**  
+  Buka [Folder Google Drive](https://drive.google.com/drive/folders/1oda79wnvKSRtOxpJHhErvLnyvrmmV8ix), download file `.zip`, lalu ekstrak di komputer Anda.
+- **Download via GitHub:**  
+  Klik tombol hijau **Code** > **Download ZIP** di halaman GitHub ini, lalu ekstrak filenya.
+- **Via Git Clone:**
   ```bash
   git clone https://github.com/devrnaldo/maganghub-draft-saver.git
   ```
@@ -42,9 +43,9 @@ Pilih salah satu metode berikut:
    - **Brave:** `brave://extensions`
 2. Di pojok kanan atas, aktifkan sakelar **Developer Mode** (Mode Pengembang).
 3. Klik tombol **Load unpacked** (Muat yang belum dibongkar) yang muncul di kiri atas.
-4. Pilih folder hasil ekstrak yang berisi file `manifest.json`.
+4. Pilih folder hasil ekstrak bernama **"maganghub-draft-saver"** yang berisi file `manifest.json`.
 5. Ekstensi **MagangHub Auto-Draft Saver** sekarang sudah aktif!
-6. *(Tips)* Klik ikon puzzle 🧩 di toolbar atas browser, lalu klik ikon **Pin 📌** di sebelah MagangHub Draft Saver agar ikonnya selalu terlihat di toolbar.
+6. *(Tips)* Klik ikon puzzle di toolbar atas browser, lalu klik ikon **Pin** di sebelah MagangHub Draft Saver agar ikonnya selalu terlihat di toolbar.
 
 ---
 
@@ -57,7 +58,7 @@ Pilih salah satu metode berikut:
    - **Kendala yang Dialami**
 3. Ketikan Anda akan tersimpan otomatis setiap kali berhenti mengetik (jeda debounce 500ms).
 4. Saat halaman di-reload atau form dibuka kembali, draft yang tersimpan akan langsung otomatis mengisi kolom-kolom yang masih kosong.
-5. Jika laporan sudah resmi Anda kirimkan, klik floating button di pojok kanan bawah ➔ klik **Hapus Draft** untuk mengosongkan draft.
+5. Jika laporan sudah resmi Anda kirimkan, klik floating button di pojok kanan bawah > klik **Hapus Draft** untuk mengosongkan draft.
 
 ---
 
