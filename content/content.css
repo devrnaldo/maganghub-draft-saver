@@ -300,9 +300,9 @@
 .mhd-actions-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 6px;
-  padding-top: 8px;
+  gap: 6px;
+  margin-top: 4px;
+  padding-top: 6px;
   border-top: 1px solid var(--mhd-border);
 }
 
@@ -310,10 +310,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 14px;
+  gap: 5px;
+  padding: 5px 10px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11.5px;
+  line-height: 1.25;
   font-weight: 500;
   cursor: pointer;
   border: 1px solid transparent;
@@ -351,15 +352,16 @@
   grid-column: span 2;
   align-self: center;
   width: fit-content;
-  margin: 2px auto 0;
+  margin: 1px auto 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 14px;
+  padding: 3px 10px;
   background: var(--mhd-danger-bg);
   border: 1px solid var(--mhd-danger-border);
   color: var(--mhd-danger-color);
-  font-size: 11.5px;
+  font-size: 11px;
+  line-height: 1.25;
   font-weight: 500;
   cursor: pointer;
   text-align: center;
